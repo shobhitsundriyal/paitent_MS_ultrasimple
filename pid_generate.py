@@ -27,8 +27,8 @@ def get_new_pid():
     else:
         pid = yy + dd + mm + str(counter)
 
-    #return pid, use_date
-    print(pid, use_date)
+    return pid
+    #print(pid, use_date)
 
 def reset_date_counter(t_date):
     f = open('pid_counter', 'w+')
@@ -38,12 +38,12 @@ def reset_date_counter(t_date):
     f.close()
 
 def increment_counter(use_date, counter):
+    counter = int(counter)
     counter += 1
-    counter = str(counter)
     f = open('pid_counter', 'w+')
     f.write(use_date)
     f.write('\n')
-    f.write(counter)
+    f.write(str(counter))
     f.close()
 
-get_new_pid()
+#get_new_pid()

@@ -1,13 +1,14 @@
 import firebase_admin
 import google.cloud
 from firebase_admin import credentials, firestore
+from pid_generate import get_new_pid
+from pid_generate import increment_counter
 
 cred = credentials.Certificate("./ServiceAccountKey.json")
 app = firebase_admin.initialize_app(cred)
 
 store = firestore.client()
 
-#doc_ref = store.collection(u'test')
-#doc_ref.add({u'name': u'test', u'added': u'just now'})
+l1_coll = 'Patients'
+l1_doc = store.collection(l1_coll)
 
-l1_doc = store.collection(u'Patients')

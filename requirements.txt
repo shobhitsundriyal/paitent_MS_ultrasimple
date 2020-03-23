@@ -1,0 +1,6 @@
+flask
+pyrebase
+firebase_admin
+google.cloud
+firebase-admin 
+google-cloud-firestore
