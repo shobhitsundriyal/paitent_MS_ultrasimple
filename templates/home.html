@@ -6,6 +6,23 @@
     <h1>Home</h1>
 
   </div>
+  <div class="lg-7 offset-lg-4 my-5 w-25">
+  <h5>
+  <form method="POST" action="{{ url_for('home') }}">
+  <div class="custom-control custom-radio">
+    <input type="radio" id="customRadio1" name="goto" class="custom-control-input" value="new">
+    <label class="custom-control-label" for="customRadio1">Treat New Patient</label>
+  </div>
+  <br>
+  <div class="custom-control custom-radio">
+    <input type="radio" id="customRadio2" name="goto" class="custom-control-input" value="old">
+    <label class="custom-control-label" for="customRadio2">Treat Existing Patient</label>
+  </div>
+  <hr>
+  <input class="btn btn-primary form-control" type="submit" value="Go">
+  </form>
+  </h5>
+</div>
 
 
 {% endblock %}

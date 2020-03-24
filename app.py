@@ -7,8 +7,13 @@ from pid_generate import get_new_pid
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
+    if request.method =='POST':
+        if request.form['goto'] == 'new':
+            return redirect(url_for('new_patient'))
+        if request.form['goto'] == 'old':
+            pass
     return render_template('home.html')
 
 @app.route('/wait')
@@ -32,6 +37,7 @@ def new_patient():
         else:
             return redirect(url_for('error'))
     return render_template('new_patient.html', p_id=p_id)
+
 
 
 if __name__ == "__main__":
