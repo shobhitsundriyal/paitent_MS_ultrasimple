@@ -5,12 +5,12 @@ from pid_generate import get_new_pid
 from pid_generate import increment_counter
 from datetime import date
 
-cred = credentials.Certificate("./ServiceAccountKey.json")
-app = firebase_admin.initialize_app(cred)
+#cred = credentials.Certificate("./ServiceAccountKey.json")
+#app = firebase_admin.initialize_app(cred)
 
-store = firestore.client()
+#store = firestore.client()
 
-def push_new_patient(req):
+def push_new_patient(req, store):
     '''Recives dict'''
     today = str(date.today())
 
