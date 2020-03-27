@@ -17,6 +17,8 @@ def treating_existing_patient(pid, store):
     print(basic_data_doc)
     basic_data = basic_data_doc.document(pid)
     print(basic_data)
-    details = basic_data.get()
+    details = basic_data.get().to_dict()
     print(details)
-    return details
+    print('----------')
+    dia_hist = basic_data.collection('Diagonosis').stream()
+    return details, dia_hist

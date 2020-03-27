@@ -54,15 +54,13 @@ def new_patient():
 @app.route('/enter-pidS', methods=['GET', 'POST'])
 def enter_pid_show():
     if request.method == 'POST':
-        details = treating_existing_patient(request.form['pid'].strip(' '), store)
-        print(str(details))
-        det = {}
-        det['Address'] = details.get('Address')
-        det['Age'] = details.get('Age')
-        det['Gender'] = details.get('Gender')
-        det['Name'] = details.get('Name')
-        det['PID'] = details.get('PID')
-        return det
+        details, dia_hist = treating_existing_patient(request.form['pid'].strip(' '), store)
+        print(dia_hist)
+        hist_list = []
+        for entry in dia_hist:
+            hist_list.append(entry.to_dict())
+        print(hist_list)
+        return render_template('show_details.html', details=details )
     
     return render_template('enter_Pid.html')
 
