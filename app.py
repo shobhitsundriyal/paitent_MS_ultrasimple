@@ -60,7 +60,7 @@ def enter_pid_show():
         for entry in dia_hist:
             hist_list.append(entry.to_dict())
         print(hist_list)
-        return render_template('show_details.html', details=details )
+        return render_template('show_details.html', details=details, hist_list=hist_list)
     
     return render_template('enter_Pid.html')
 

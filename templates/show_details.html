@@ -29,9 +29,24 @@
               </tr>
               
           </table>
-        
+    
     </div>
 </div>
 
+<div class="lg-7 offset-lg-2 my-2 w-50">
+  <!-- simple collapse bootstrap-->
+  {% for hist in hist_list %}
+  <button class="btn btn-info" data-toggle="collapse" data-target="#demo">{{hist.get('Date')}}</button>
+
+  <div id="demo" class="collapse">
+    {% for diag in hist.get('Prov_Diagonis') %}
+      {{diag}}
+    {% endfor %}
+  </div>
+  {% endfor %}
+  xxx
+  {{hist_list}}
+
+</div>
 
 {% endblock %}
