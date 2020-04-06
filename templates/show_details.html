@@ -35,10 +35,14 @@
 
 <div class="lg-7 offset-lg-2 my-2 w-75">
   <!-- simple collapse bootstrap-->
+  <p>
   {% for hist in hist_list %}
   <!--{% set i = 0 %}-->
-  <button class="btn btn-success btn-lg" data-toggle="collapse" data-target="#demo{{loop.index}}">{{hist.get('Date')}}</button>
-
+  <button class="btn btn-success btn-md" data-toggle="collapse" data-target="#demo{{loop.index}}">{{hist.get('Date')}}</button>
+  {% endfor %}
+  </p>
+  {% for hist in hist_list %}
+  <p>
   <div id="demo{{loop.index}}" class="collapse">
     <ul class="list-group list-unstyled">
       <li class="list-group-item font-weight-bold bg-dark text-white">Prov_Diagonis</li>
@@ -49,8 +53,8 @@
         
       </ul>
     </ul>
-    
-  </div><br><br>
+  </p>
+  </div>
   {% endfor %}
 
 </div>
