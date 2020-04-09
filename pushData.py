@@ -39,5 +39,11 @@ def push_new_patient(req, store):
         'Prov_Diagonis':d
         }
     l1_doc.document(pid).collection('Diagonosis').document(today).set(p_diagnosis)
+    if req['p_hist']:
+        hist = {
+            'Date':'Patient History',
+            'Prov_Diagonis':req['p_hist'].split('\d')
+        }
+        l1_doc.document(pid).collection('Diagonosis').document('00Paytent_hist').set(hist)
     return True
 
