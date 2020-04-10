@@ -17,6 +17,16 @@ store = firestore.client()
 
 app = Flask(__name__)
 
+#Login
+@app.route("/")
+def login():
+    return render_template("login.html")
+
+#Sign up/ Register
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
+
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method =='POST':
