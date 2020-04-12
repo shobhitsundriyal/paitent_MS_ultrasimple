@@ -6,6 +6,8 @@ from pushData import push_new_patient
 from pid_generate import get_new_pid
 from getData import treating_existing_patient
 
+from getconfiglogin import giveLoginkey
+
 import firebase_admin
 import google.cloud
 from firebase_admin import credentials, firestore

@@ -1,0 +1,13 @@
+config = {
+    'apiKey': "xxx",
+    'authDomain': "xxx",
+    'databaseURL': "xxxx",
+    'projectId': "xxx",
+    'storageBucket': "xxxx",
+    'messagingSenderId': "xxxx",
+    'appId': "xxxxxx",
+    'measurementId': "xxxx"
+  }
+
+def giveLoginkey():
+    return config
