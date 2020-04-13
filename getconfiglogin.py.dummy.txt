@@ -1,3 +1,4 @@
+# MOved to correct position now
 config = {
     'apiKey': "xxx",
     'authDomain': "xxx",
