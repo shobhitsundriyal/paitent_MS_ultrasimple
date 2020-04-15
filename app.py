@@ -20,6 +20,7 @@ store = firestore.client()
 app = Flask(__name__)
 
 #Login
+'''
 @app.route("/")
 def login():
     return render_template("login.html")
@@ -28,6 +29,8 @@ def login():
 @app.route("/signup")
 def signup():
     return render_template("signup.html")
+'''
+####
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -36,7 +39,7 @@ def home():
             return redirect(url_for('new_patient'))
         if request.form['goto'] == 'old':
             #return redirect(url_for('enter_pid'))
-            pass
+            return redirect(url_for('existing'))
         if request.form['goto'] == 'getPdata':
             return redirect(url_for('enter_pid_show'))
     return render_template('home.html')
@@ -49,6 +52,7 @@ def wait():
 def error():
     return "Some error occured please try again"
 
+#new
 @app.route('/new', methods=['GET', 'POST'])
 def new_patient():
     p_id = get_new_pid()
@@ -63,6 +67,22 @@ def new_patient():
             return redirect(url_for('error'))
     return render_template('new_patient.html', p_id=p_id)
 
+# Existing
+@app.route('/existing', methods=['GET', 'POST'])
+def existing():
+    if request.method == 'POST':
+        details, dia_hist = treating_existing_patient(request.form['pid'].strip(' '), store)
+        print(dia_hist)
+        hist_list = []
+        for entry in dia_hist:
+            hist_list.append(entry.to_dict())
+        print(hist_list)
+        return render_template('show_details.html', details=details, hist_list=hist_list)
+    
+    return render_template('enter_Pid.html')
+
+
+# Show
 @app.route('/enter-pidS', methods=['GET', 'POST'])
 def enter_pid_show():
     if request.method == 'POST':
