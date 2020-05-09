@@ -20,7 +20,7 @@ store = firestore.client()
 
 app = Flask(__name__)
 
-#Login
+#Login to implement
 '''
 @app.route("/")
 def login():
