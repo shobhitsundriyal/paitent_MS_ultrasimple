@@ -1,6 +1,7 @@
 from datetime import date
 from datetime import datetime
 
+##make encoded file
 def get_new_pid():
     '''Generate pid in string format and t_date'''
     today = date.today()
